@@ -1,20 +1,19 @@
-package quru.qa;
+package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class StudentRegistrationFormTests {
-    @Test
-    void firstTest() {
-        Configuration.pageLoadStrategy = "eager";
-        open("https://demoqa.com/automation-practice-form");
+    public class RegistrationTests extends TestBase {
+
+        @Test
+        void successfulRegistrationTest() {
+            Configuration.pageLoadStrategy = "eager";
+            open("/automation-practice-form");
+            $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
         //First Name
         $("#firstName").setValue("Èìÿ");
