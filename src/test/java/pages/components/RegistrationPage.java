@@ -2,6 +2,7 @@ package pages.components;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -102,7 +103,10 @@ public class RegistrationPage {
         modalWindowComponent.checkSubmitForm(fieldName, value);
         return this;
     }
-
-
+    public RegistrationPage checkBorderColor() {
+        firstNameInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        lastNameInput.shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        return this;
+    }
 
 }
