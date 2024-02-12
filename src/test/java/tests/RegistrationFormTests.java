@@ -2,7 +2,6 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import page.RegistrationPage;
-import static tests.TestData.*;
 
 public class RegistrationFormTests extends TestBase {
 
@@ -24,9 +23,9 @@ public class RegistrationFormTests extends TestBase {
     @Test
     void registration() {
         registrationPage.openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(userEmail)
+                .setFirstName("Ivan")
+                .setLastName("Ivanov")
+                .setEmail("ivan@mail.ru")
                 .setGender("Other")
                 .setNumber("8901234567")
                 .setDateOfBirth("20", "January", "2001")
@@ -37,8 +36,8 @@ public class RegistrationFormTests extends TestBase {
                 .setState("NCR")
                 .setCity("Delhi")
                 .submit()
-                .checkSubmitResult("Student Name", firstName + " " + lastName)
-                .checkSubmitResult("Student Email", userEmail)
+                .checkSubmitResult("Student Name", "Ivan" + " " + "Ivanov")
+                .checkSubmitResult("Student Email", "ivan@mail.ru")
                 .checkSubmitResult("Gender", "Other")
                 .checkSubmitResult("Mobile", "8901234567")
                 .checkSubmitResult("Date of Birth", "20 January,2001")
