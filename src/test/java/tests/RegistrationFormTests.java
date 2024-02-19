@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import page.RegistrationPage;
 
@@ -8,6 +9,7 @@ public class RegistrationFormTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
+    @Tag("Smoke")
     void minimalRegistrationTest() {
         registrationPage.openPage()
                 .setFirstName("Тест")
@@ -21,6 +23,7 @@ public class RegistrationFormTests extends TestBase {
     }
 
     @Test
+    @Tag("Regress")
     void registration() {
         registrationPage.openPage()
                 .setFirstName("Ivan")
@@ -49,6 +52,7 @@ public class RegistrationFormTests extends TestBase {
     }
 
     @Test
+    @Tag("Regress")
     void negativeTest() {
         registrationPage.openPage()
                 .setGender("Other")
